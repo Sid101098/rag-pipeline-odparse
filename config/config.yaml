@@ -1,0 +1,22 @@
+data:
+  input_directory: "./data/raw"
+  output_directory: "./data/processed"
+  supported_formats: [".pdf", ".docx", ".txt", ".pptx"]
+
+parser:
+  chunk_size: 1000
+  chunk_overlap: 200
+  max_file_size_mb: 10
+
+vector_store:
+  collection_name: "document_chunks"
+  embedding_model: "all-MiniLM-L6-v2"
+  persist_directory: "./vector_store"
+
+rag:
+  model_name: "gpt-3.5-turbo"
+  temperature: 0.1
+  max_tokens: 500
+
+openai:
+  api_key: ${OPENAI_API_KEY}
